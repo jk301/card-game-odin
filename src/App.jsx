@@ -52,7 +52,7 @@ function App() {
 
     }
 
-    // setFrames(prev => fisherYates(prev))
+    setFrames(prev => fisherYates(prev))
 
   }
 
