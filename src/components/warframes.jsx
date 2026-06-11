@@ -1,5 +1,6 @@
 // warframes.jsx
 
+// It was easier getting this TBH
 export const warframes = [
     { 
         name: 'ash', 
