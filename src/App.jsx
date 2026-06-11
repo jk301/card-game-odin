@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 
 import { Header } from './components/head.jsx'
+import { Cards } from './components/cards.jsx'
 import { warframes } from './components/warframes.jsx'
 
 function App() {
@@ -42,7 +43,10 @@ function App() {
   }
 
   return (
-    <Header bestScore={bestScore} currScore={currScore} frames={frames} />
+    <>
+      <Header bestScore={bestScore} currScore={currScore} frames={frames} />
+      <Cards onClick={handleClick} frames={frames}/>
+    </>
   )
 }
 
