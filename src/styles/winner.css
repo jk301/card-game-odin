@@ -1,0 +1,38 @@
+/* winner.css */
+
+.winner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.winner > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    background-color: #2B5748;
+    color: white;
+    font-weight: 900;
+    font-family: inherit;
+    font-size: 30px;
+    padding: 30px;
+    width: 100%;
+
+    transition: background-color 0.2s ease;
+}
+
+.winner > button:hover {
+    background-color: #273338;
+}
+
+.winner > img {
+    width: 200px;
+    height: 200px;
+}
