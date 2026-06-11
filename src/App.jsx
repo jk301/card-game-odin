@@ -4,6 +4,7 @@ import './App.css'
 
 import { Header } from './components/head.jsx'
 import { Cards } from './components/cards.jsx'
+import { Winner } from './components/winner.jsx'
 import { warframes } from './components/warframes.jsx'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [currScore, setCurrScore] = useState(0)
   const [clicked, setClicked] = useState([])
   const [frames, setFrames] = useState(warframes)
+  const [winner, setWinner] = useState(false)
 
   function fisherYates(array) {
     const arr = [...array];
@@ -19,6 +21,14 @@ function App() {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
+  }
+
+  function restart() {
+    setBestScore(0)
+    setCurrScore(0)
+    setClicked([])
+    setWinner(false)
+    setFrames(prev => fisherYates(prev))
   }
 
   function handleClick (name) {
@@ -36,16 +46,20 @@ function App() {
         setBestScore(checkScore)
       }
 
+      if (checkScore === frames.length) {
+        setWinner(true)
+      }
+
     }
 
-    setFrames(prev => fisherYates(prev))
+    // setFrames(prev => fisherYates(prev))
 
   }
 
   return (
     <>
       <Header bestScore={bestScore} currScore={currScore} frames={frames} />
-      <Cards onClick={handleClick} frames={frames}/>
+      {winner ? <Winner restart={restart}/> : <Cards onClick={handleClick} frames={frames}/>}
     </>
   )
 }
